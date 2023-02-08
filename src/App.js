@@ -1,13 +1,24 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import styled from 'styled-components';
 import Router from './components/Router';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Router />
-    </BrowserRouter>
+    <Wrapper>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </Wrapper>
   );
 }
 
 export default App;
+
+const Wrapper = styled.div`
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+`;
