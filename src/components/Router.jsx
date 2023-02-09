@@ -14,15 +14,15 @@ const Router = () => {
         { index: true, element: isToken ? <Navigate replace to="/todo" /> : <SignUpInForm /> },
         {
             path: '/signup',
-            element: isToken ? <Navigate replace to="/todo" /> : <SignUpInForm />,
+            element: isToken ? <Navigate replace to="/todo" /> : <Signup />,
         },
         {
             path: '/signin',
-            element: isToken ? <Navigate replace to="/todo" /> : <SignUpInForm />,
+            element: isToken ? <Navigate replace to="/todo" /> : <Signin />,
         },
         {
             path: '/todo',
-            element: isToken ? <Todo /> : <Navigate replace to="/signin" />,
+            element: isToken ? <Todo /> : <Navigate replace to="/signin" />
         },
     ]);
     return routes;
