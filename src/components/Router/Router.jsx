@@ -1,10 +1,10 @@
 import React from 'react';
 import { useRoutes, Navigate } from 'react-router-dom';
-import App from '../App';
-import SignUpInForm from './SignUpInForm';
-import Signup from '../pages/Signup';
-import Signin from '../pages/Signin';
-import Todo from '../pages/Todo';
+import App from '../../App';
+import SignUpInForm from '../Form/SignUpInForm';
+import Signup from '../../pages/Signup';
+import Signin from '../../pages/Signin';
+import Todo from '../../pages/Todo';
 
 const Router = () => {
     const isToken = localStorage.getItem('token');

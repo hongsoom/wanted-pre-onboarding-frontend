@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate, useMatch } from "react-router-dom";
 import styled from "styled-components";
-import { Input } from "../elements/Input";
-import { Button } from "../elements/Button";
-import instance from "../api/api";
+import { Input } from "../../elements/Input";
+import { Button } from "../../elements/Button";
+import instance from "../../api/api";
 
 const SignUpInForm = () => {
 

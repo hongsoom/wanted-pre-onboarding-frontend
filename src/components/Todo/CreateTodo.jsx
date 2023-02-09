@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import instance from "../api/api";
-import { Input } from "../elements/Input";
-import { SendButton } from "../elements/Button";
+import instance from "../../api/api";
+import { Input } from "../../elements/Input";
+import { SendButton } from "../../elements/Button";
 
 const CreateTodo = ({ createState, setCreateState }) => {
 

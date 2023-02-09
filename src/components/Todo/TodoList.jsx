@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import instance from "../api/api";
-import { CheckInput, InputS, Label } from "../elements/Input";
+import instance from "../../api/api";
+import { CheckInput, InputS, Label } from "../../elements/Input";
 import { TfiPencil, TfiTrash, TfiClose } from "react-icons/tfi";
 
 const TodoList = ({ Todos, createState, setCreateState }) => {
