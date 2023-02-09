@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate, useMatch } from "react-router-dom";
 import styled from "styled-components";
-import { FixedSizeBlackBtn } from "../elements/Buttons";
-import { HelpText, Input, InputTitle } from "../elements/Inputs";
+import { Input } from "../elements/Input";
+import { Button } from "../elements/Button";
 import instance from "../api/api";
 
 const SignUpInForm = () => {
@@ -73,7 +73,10 @@ const SignUpInForm = () => {
             .then((res) => {
                 const token = res.data.access_token;
                 localStorage.setItem("token", token);
-                navigate('/todo');
+
+                if (localStorage.getItem("token")) {
+                    window.location.assign('/todo');
+                }
             })
             .catch((err) => {
                 setPasswordError(err.response.data.message);
@@ -82,11 +85,12 @@ const SignUpInForm = () => {
 
     return (
         <Wrap>
-            {match ? < h1> 로그인</h1> : <h1>회원가입</h1>}
-            <InputTitle>이메일</InputTitle>
+            {match ? <h1> 로그인</h1> : <h1>회원가입</h1>}
+            <Title>이메일</Title>
             <Input
                 name="email"
                 type="email"
+                vale={email}
                 data-testid="email-input"
                 onChange={onEmail}
                 placeholder="wanted@wanted.co.kr"
@@ -94,34 +98,36 @@ const SignUpInForm = () => {
                 autoComplete="off"
                 required
             />
-            <HelpText>{emailError}</HelpText>
-            <InputTitle>비밀번호</InputTitle>
+            <Error>{emailError}</Error>
+            <Title>비밀번호</Title>
             <Input
                 name="password"
                 type="password"
+                vale={password}
                 data-testid="password-input"
                 onChange={onPassword}
                 placeholder="8자 이상 입력해주세요."
+                minlength="8"
                 autocapitalize="off"
                 autoComplete="off"
                 required
             />
-            <HelpText>{passwordError}</HelpText>
+            <Error>{passwordError}</Error>
             <ButtonWrap>
                 {match ?
-                    <FixedSizeBlackBtn
+                    <Button
                         data-testid="signin-button"
                         disabled={isValidLogin}
                         onClick={SignIn}>
                         로그인
-                    </FixedSizeBlackBtn>
+                    </Button>
                     :
-                    <FixedSizeBlackBtn
+                    <Button
                         data-testid="signup-button"
                         disabled={isValidLogin}
                         onClick={SignUp}>
                         회원가입
-                    </FixedSizeBlackBtn>}
+                    </Button>}
                 <LogWrap>
                     {match ?
                         <>
@@ -166,6 +172,21 @@ const Wrap = styled.div`
         font-weight: 700;
         margin: 50px 0;
     }
+`;
+
+const Title = styled.div`
+    margin-bottom: 8px;
+    font-family: NotoSansM;
+    font-size: ${({ theme }) => theme.fontSizes.m};
+    color: ${({ theme }) => theme.colors.gray};
+`;
+
+const Error = styled.div`
+    height: 1em;
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-size: ${({ theme }) => theme.fontSizes.s};
+    color: ${({ theme }) => theme.colors.orange};
 `;
 
 const ButtonWrap = styled.div`
