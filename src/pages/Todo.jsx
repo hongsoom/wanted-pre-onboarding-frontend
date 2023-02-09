@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import instance from "../api/api";
-import TodoList from "../components/TodoList";
-import TodoCreate from "../components/CreateTodo";
+import TodoList from "../components/Todo/TodoList";
+import TodoCreate from "../components/Todo/CreateTodo";
 import { ButtonS } from "../elements/Button";
 
 const Todo = () => {
