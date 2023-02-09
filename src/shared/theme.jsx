@@ -1,6 +1,6 @@
 const colors = {
     orange: "#FF8C28",
-    green: "#00AE1E",
+    green: "#32cd32",
     darkBlue: "#322F5A",
     black: "#222222",
     white: "#FFFFFF",
@@ -12,30 +12,14 @@ const colors = {
 
 const fontSizes = {
     s: "12px",
-    m: "14px",
+    m: "15px",
     l: "18px",
     xl: "27px",
-};
-
-const width = {
-    maxWidth: "1440px",
-    listWidth: "1106px",
-};
-
-const deviceSizes = {
-    mobile: "768px",
-};
-
-const device = {
-    mobile: `screen and (min-width: ${deviceSizes.mobile})`,
 };
 
 const theme = {
     colors,
     fontSizes,
-    width,
-    device,
-    deviceSizes,
 };
 
 export default theme;
